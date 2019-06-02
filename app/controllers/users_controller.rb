@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :current_user, only: :show
 
   def new
   end
@@ -17,12 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if session[:userid]
-      @current_user = User.find(session[:userid].to_i)
-      @hosted_events = @user.hosted_events
-    else
-      redirect_to user_new_path
-    end
+    @events = @user.hosted_events
   end
 
 end

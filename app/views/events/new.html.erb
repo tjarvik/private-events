@@ -1,0 +1,9 @@
+<h2>Create an event</h2>
+
+<%= form_for(:event) do |f| %>
+  Description <%= f.text_area :description %><br>
+  Time <%= f.datetime_field :time %><br>
+  Location <%= f.text_field :location %><br>
+  <%= f.submit 'create event' %>
+<% end %>
+

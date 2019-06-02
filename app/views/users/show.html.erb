@@ -1,2 +1,7 @@
+<p><%= link_to "Create an event", events_new_path %></p>
+
 <h2>Events hosted by <%= "#{@user.name}" %></h2>
 
+<ul>
+    <%= render @events %>
+</ul>
