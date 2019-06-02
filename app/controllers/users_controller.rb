@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
   def new
   end
@@ -11,14 +11,15 @@ class UserController < ApplicationController
     else
       user = User.create(name: username)
       session[:userid] = user.id
-      redirect_to root_url
+      redirect_to action: 'show', id: user.id
     end
   end
 
   def show
+    @user = User.find(params[:id])
     if session[:userid]
       @current_user = User.find(session[:userid].to_i)
-      render 'show'
+      @hosted_events = @user.hosted_events
     else
       redirect_to user_new_path
     end

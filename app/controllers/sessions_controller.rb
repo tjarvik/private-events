@@ -1,4 +1,4 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
     def new
     end
 
@@ -7,7 +7,7 @@ class SessionController < ApplicationController
         user = User.find_by(name: username)
         if user
             session[:userid] = user.id
-            redirect_to root_url
+            redirect_to controller: 'users', action: 'show', id: user.id
         else
             flash.now[:danger] = "#{username} does not exist"
             render 'new'
