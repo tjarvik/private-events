@@ -1,7 +1,13 @@
 <p><%= link_to "Create an event", events_new_path %></p>
 
 <h2>Events hosted by <%= "#{@user.name}" %></h2>
-
 <ul>
     <%= render @events %>
+</ul>
+
+<h2>Events <%= "#{@user.name}" %> is attending:</h2>
+<ul>
+    <% @attended_events.find_each do |attended_event| %>
+        <li><%= attended_event.description %></li>
+    <% end %>
 </ul>

@@ -1,9 +1,14 @@
 <h2>Create an event</h2>
 
 <%= form_for(:event) do |f| %>
-  Description <%= f.text_area :description %><br>
-  Time <%= f.datetime_field :time %><br>
-  Location <%= f.text_field :location %><br>
+  <p>Description <%= f.text_area :description %></p>
+  <p>Time <%= f.datetime_field :time %></p>
+  Invite guests:
+  <br>
+  <% @users.find_each do |user| %>
+    <%= f.check_box "invited[#{user.id}]" %>
+    <%= user.name %><br>
+  <% end %>
   <%= f.submit 'create event' %>
 <% end %>
 
