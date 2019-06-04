@@ -1,8 +1,8 @@
 <h2>Create an event</h2>
 
 <%= form_for(:event) do |f| %>
-  <p>Description <%= f.text_area :description %></p>
-  <p>Time <%= f.datetime_field :time %></p>
+  <p>Description: <%= f.text_area :description %></p>
+  <p>Time: <%= f.datetime_select :time %></p>
   Invite guests:
   <br>
   <% @users.find_each do |user| %>

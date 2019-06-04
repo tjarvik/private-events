@@ -18,8 +18,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @events = @user.hosted_events
-    @attended_events = @user.attended_events
+    @past_hosted_events = @user.hosted_events.past
+    @future_hosted_events = @user.hosted_events.future
+    @past_attended_events = @user.attended_events.past
+    @future_attended_events = @user.attended_events.future
   end
 
 end

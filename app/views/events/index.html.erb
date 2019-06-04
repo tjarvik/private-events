@@ -1,5 +1,8 @@
-<h2>All events</h2>
-
+<h3>Upcoming events</h3>
 <ul>
-    <%= render @events %>
+    <%= render partial: "event", collection: @future_events %>
+</ul>
+<h3>Past events</h3>
+<ul>
+<%= render partial: "event", collection: @past_events %>
 </ul>

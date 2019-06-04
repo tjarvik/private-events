@@ -15,10 +15,13 @@
     <% end %>
     <% if @current_user %>
       Signed in as <%= "#{@current_user.name} " %>
-      <%= link_to "sign out", logout_path, method: :delete %>
+      <%= link_to "sign out ", logout_path, method: :delete %>
+      | <%= link_to "my events", "/users/#{@current_user.id}" %>
+      | <%= link_to "all events", '/events/index' %>
+      | <%= link_to "create an event", '/events/new' %>
     <% else %>
       <%= link_to "sign in ", login_path %>
-      or <%= link_to "sign up", user_new_path %>
+      or <%= link_to "sign up ", user_new_path %>
     <% end %>
     <br>
     <%= yield %>

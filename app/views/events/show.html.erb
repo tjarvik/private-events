@@ -1,6 +1,4 @@
-
-<%= render @events %>
-
+<%= render partial: "event", collection: @events %>
 <h2>Attending:</h2>
 <ul>
     <% @attendees.find_each do |attendee| %>

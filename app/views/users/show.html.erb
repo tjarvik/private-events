@@ -1,13 +1,19 @@
-<p><%= link_to "Create an event", events_new_path %></p>
-
 <h2>Events hosted by <%= "#{@user.name}" %></h2>
+<h3>upcoming events</h3>
 <ul>
-    <%= render @events %>
+    <%= render partial: "event", collection: @future_hosted_events %>
+</ul>
+<h3>past events</h3>
+<ul>
+    <%= render partial: "event", collection: @past_hosted_events %>
 </ul>
 
 <h2>Events <%= "#{@user.name}" %> is attending:</h2>
+<h3>upcoming events</h3>
 <ul>
-    <% @attended_events.find_each do |attended_event| %>
-        <li><%= attended_event.description %></li>
-    <% end %>
+    <%= render partial: "event", collection: @future_attended_events %>
+</ul>
+<h3>past events</h3>
+<ul>
+    <%= render partial: "event", collection: @past_attended_events %>
 </ul>
